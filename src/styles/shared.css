@@ -361,9 +361,9 @@
   border-radius: 9999px;
   background-color: currentColor;
   transition:
-    transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-    opacity 0.29s ease,
-    top 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    opacity 0.75s ease,
+    top 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .hamburger-line:nth-child(1) {
