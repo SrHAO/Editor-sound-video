@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AboutUs from '../components/pages/AboutUs.jsx';
+
+const title = 'About Us — Editor Sound & Video';
+const description =
+  'Estudio emergente dedicado a la edición de fotos, post-producción de video y planificación integral de proyectos audiovisuales.';
+---
+
+<Layout title={title} description={description}>
+	<AboutUs client:idle />
+</Layout>

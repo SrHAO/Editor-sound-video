@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+@layer base {
+  :root {
+    /* "Brandmode" palette — light */
+    --background: 225 100% 5%;
+    --foreground: 220 33% 97%;
+    --card: 225 90% 11%;
+    --card-foreground: 220 33% 97%;
+    --popover: 232 29% 16%;
+    --popover-foreground: 220 33% 97%;
+    --primary: 206 90% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 232 29% 16%;
+    --secondary-foreground: 220 33% 97%;
+    --muted: 232 29% 16%;
+    --muted-foreground: 216 8% 69%;
+    --accent: 232 25% 20%;
+    --accent-foreground: 220 33% 97%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 233 19% 28%;
+    --input: 233 19% 28%;
+    --ring: 206 90% 52%;
+    --chart-1: 206 90% 52%;
+    --chart-2: 201 61% 66%;
+    --chart-3: 233 19% 28%;
+    --chart-4: 216 8% 69%;
+    --chart-5: 199 70% 74%;
+    --radius: 0.5rem;
+
+    /* Global surface / text tokens */
+    --bg: #00071c;
+    --surface: #031037;
+    --surface-hover: #0b1032;
+    --elevated: #1d2035;
+    --border-token: #3a3d55;
+    --border-soft: #41445e;
+    --text: #e2e6e8;
+    --text-strong: #f5f7fa;
+    --muted-token: #a9afb7;
+    --muted-2: #79818d;
+    --neutral: #062870;
+    --neutral-hover: #0b378e;
+
+    /* Brand + accent (Brandmode) */
+    --brand: #1794f3;
+    --brand-hover: #078af2;
+    --brand-contrast: #f5f7fa;
+    --gold: #64bfea;
+    --gold-strong: #8ae6f1;
+
+    /* Silver edges (light mode only) */
+    --silver: #3a3d55;
+    --silver-strong: #2951a9;
+  }
+
+  .dark {
+    /* Warm "Bone & Burgundy" palette — dark */
+    --background: 30 9% 4%;
+    --foreground: 40 25% 88%;
+    --card: 36 12% 8%;
+    --card-foreground: 40 25% 88%;
+    --popover: 34 12% 11%;
+    --popover-foreground: 40 25% 88%;
+    --primary: 40 25% 88%;
+    --primary-foreground: 30 9% 4%;
+    --secondary: 36 12% 8%;
+    --secondary-foreground: 40 25% 88%;
+    --muted: 36 12% 8%;
+    --muted-foreground: 37 10% 60%;
+    --accent: 36 12% 8%;
+    --accent-foreground: 40 25% 88%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 38 9% 18%;
+    --input: 38 9% 18%;
+    --ring: 40 25% 88%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    /* Global surface / text tokens */
+    --bg: #0c0b0a;
+    --surface: #171512;
+    --surface-hover: #2a2621;
+    --elevated: #201d19;
+    --border-token: #33302b;
+    --border-soft: #262320;
+    --text: #e9e4da;
+    --text-strong: #ffffff;
+    --muted-token: #a39b8e;
+    --muted-2: #7e776c;
+    --neutral: #201d19;
+    --neutral-hover: #2a2621;
+
+    /* Brand + premium gold */
+    --brand: #c5362d;
+    --brand-hover: #e0533f;
+    --brand-contrast: #ffffff;
+    --gold: #c9a227;
+    --gold-strong: #d4af37;
+
+    /* Silver edges are neutralized in dark mode */
+    --silver: #33302b;
+    --silver-strong: #262320;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}

@@ -1,11 +1,12 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Home from '../components/pages/Home.jsx';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = 'Editor Sound & Video — Creative Studio';
+const description =
+  'Estudio creativo de edición de video y sonido: post-producción, corrección de color, VFX, fotografía y planificación de proyectos audiovisuales.';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={title} description={description}>
+	<Home client:idle />
 </Layout>

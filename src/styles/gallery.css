@@ -1,0 +1,119 @@
+/* 3D sphere gallery */
+.sphere {
+  position: relative;
+  width: 100%;
+  height: clamp(520px, 84vh, 920px);
+  perspective: 1200px;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.sphere:active {
+  cursor: grabbing;
+}
+
+.sphere__stage {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform: rotateX(-10deg);
+  will-change: transform;
+}
+
+.sphere__item {
+  --card: clamp(92.5px, 15vw, 157.5px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--card);
+  height: var(--card);
+  margin-left: calc(var(--card) / -2);
+  margin-top: calc(var(--card) / -2);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--surface);
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.75);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: box-shadow 0.3s;
+}
+
+.sphere__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.95) brightness(0.9);
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.sphere__item:hover {
+  box-shadow: 0 18px 44px -10px rgba(0, 0, 0, 0.9);
+}
+
+.sphere__item:hover img {
+  transform: scale(1.4);
+  filter: saturate(1.05) brightness(1.02);
+}
+
+.sphere__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0.5rem;
+  opacity: 0;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.78), transparent 62%);
+  transition: opacity 0.3s;
+}
+
+.sphere__item:hover .sphere__label {
+  opacity: 1;
+}
+
+.sphere__label span {
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Quote sits behind the sphere, visible through the gaps between images */
+.sphere__quote {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.sphere__quote-text {
+  position: relative;
+  max-width: 26ch;
+  font-size: clamp(0.99rem, 2.7vw, 1.71rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.5;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
+}
+
+.gallery-overlay {
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sphere {
+    cursor: default;
+  }
+}

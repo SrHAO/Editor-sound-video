@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Talents from '../components/pages/Talents.jsx';
+
+const title = 'Talents — Editor Sound & Video';
+const description =
+  'Equipo de talentos: fotógrafos, editores, productores y directores de arte de un estudio audiovisual.';
+---
+
+<Layout title={title} description={description}>
+	<Talents client:idle />
+</Layout>

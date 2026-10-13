@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SelectedWork from '../components/pages/SelectedWork.jsx';
+
+const title = 'Selected Work — Editor Sound & Video';
+const description =
+  'Trabajos selectos: sesiones fotográficas, edición de video, reels, corrección de color, post-producción y planificación.';
+---
+
+<Layout title={title} description={description}>
+	<SelectedWork client:idle />
+</Layout>

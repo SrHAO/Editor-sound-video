@@ -1,0 +1,136 @@
+.service-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: modal-fade-in 0.3s ease both;
+}
+
+.service-modal-panel {
+  width: 100%;
+  max-width: 28rem;
+  background-color: var(--elevated);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-soft);
+  padding: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modal-rise 0.3s ease both;
+}
+
+@media (min-width: 640px) {
+  .service-modal-panel {
+    padding: 2rem;
+  }
+}
+
+.dark .service-modal-panel {
+  background-color: var(--surface);
+}
+
+@keyframes modal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.service-modal__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.dark .service-modal__title {
+  color: var(--text-strong);
+}
+
+.service-modal__close {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.service-modal__close:hover {
+  background-color: var(--surface-hover);
+}
+
+.dark .service-modal__close:hover {
+  background-color: var(--surface-hover);
+}
+
+.service-modal__close svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--text);
+}
+
+.dark .service-modal__close svg {
+  color: var(--text-strong);
+}
+
+.service-modal__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-modal__list > * + * {
+  margin-top: 0.75rem;
+}
+
+.service-modal__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--elevated);
+  transition: background-color 0.2s;
+}
+
+.service-modal__item:hover {
+  background-color: var(--surface-hover);
+}
+
+.dark .service-modal__item {
+  background-color: var(--surface-hover);
+}
+
+.dark .service-modal__item:hover {
+  background-color: var(--border-token);
+}
+
+.service-modal__dot {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: var(--neutral);
+}
+
+.dark .service-modal__dot {
+  background-color: var(--text-strong);
+}
+
+.service-modal__text {
+  color: var(--text-strong);
+  font-weight: 500;
+}
+
+.dark .service-modal__text {
+  color: var(--text);
+}

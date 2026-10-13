@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import OurReels from '../components/pages/OurReels.jsx';
+
+const title = "Our Reel's — Editor Sound & Video";
+const description =
+  'Reel de producciones de video profesionales y proyectos creativos de edición y post-producción.';
+---
+
+<Layout title={title} description={description}>
+	<OurReels client:idle />
+</Layout>

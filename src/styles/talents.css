@@ -1,0 +1,182 @@
+.talents-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .talents-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .talents-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.talent-card {
+  perspective: 1000px;
+  height: 500px;
+  cursor: pointer;
+}
+
+.talent-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s;
+}
+
+.talent-card__inner--flipped {
+  transform: rotateY(180deg);
+}
+
+.talent-card__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background-color: var(--surface);
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.talent-card__face--back {
+  transform: rotateY(180deg);
+  background-color: var(--surface);
+}
+
+.dark .talent-card__face,
+.dark .talent-card__face--back {
+  background-color: var(--surface);
+}
+
+.talent-card__media {
+  position: relative;
+  height: 100%;
+}
+
+.talent-card__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.talent-card__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.talent-card__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .talent-card__name {
+    font-size: 1.875rem;
+  }
+}
+
+.talent-card__specialty {
+  font-size: 1.125rem;
+  color: #e5e7eb;
+}
+
+.talent-card__hint {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  margin-top: 0.5rem;
+}
+
+.talent-card__body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .talent-card__body {
+    padding: 2rem;
+  }
+}
+
+.talent-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.talent-card__avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 9999px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.talent-card__head-main {
+  flex: 1;
+}
+
+.talent-card__name--small {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 0.25rem;
+}
+
+.dark .talent-card__name--small {
+  color: var(--text-strong);
+}
+
+.talent-card__specialty--small {
+  font-size: 1.125rem;
+  color: var(--muted-token);
+  margin-bottom: 0.25rem;
+}
+
+.dark .talent-card__specialty--small {
+  color: var(--muted-token);
+}
+
+.talent-card__exp {
+  font-size: 0.875rem;
+  color: var(--muted-2);
+}
+
+.talent-card__bio {
+  flex: 1;
+  overflow-y: auto;
+  color: var(--text);
+  line-height: 1.625;
+}
+
+.dark .talent-card__bio {
+  color: var(--text);
+}
+
+.talent-card__flip-hint {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted-2);
+}

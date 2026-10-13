@@ -1,23 +1,77 @@
+---
+import '../styles/global.css';
+import '../styles/shared.css';
+import '../styles/layout.css';
+import '../styles/header.css';
+import '../styles/sidebar.css';
+import '../styles/footer.css';
+import '../styles/floating-buttons.css';
+import '../styles/home.css';
+import '../styles/about-us.css';
+import '../styles/gallery.css';
+import '../styles/talents.css';
+import '../styles/selected-work.css';
+import '../styles/our-reels.css';
+import '../styles/service-modal.css';
+import '../styles/legal-modal.css';
+import Header from '../components/Header.jsx';
+import Sidebar from '../components/Sidebar.jsx';
+import FloatingButtons from '../components/FloatingButtons.jsx';
+import { SITE_URL } from '../data/site';
+
+const SITE_NAME = 'Editor Sound & Video';
+
+const pathname = Astro.url.pathname;
+
+const { title = SITE_NAME, description, lang = 'en' } = Astro.props;
+
+const defaultDescription =
+  'Portfolio profesional de edición de video y sonido: post-producción, color, VFX, fotografía y planificación de proyectos audiovisuales.';
+const metaDescription = description ?? defaultDescription;
+
+const canonical = new URL(pathname, SITE_URL).toString();
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<meta name="description" content={metaDescription} />
+		<link rel="canonical" href={canonical} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={SITE_NAME} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={metaDescription} />
+		<meta property="og:url" content={canonical} />
+
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={metaDescription} />
+
+		<script is:inline>
+			(function () {
+				try {
+					var saved = localStorage.getItem('theme');
+					var dark = saved
+						? saved === 'dark'
+						: window.matchMedia('(prefers-color-scheme: dark)').matches;
+					if (dark) document.documentElement.classList.add('dark');
+				} catch (e) {}
+			})();
+		</script>
 	</head>
 	<body>
-		<slot />
+		<div class="app">
+			<Header client:load />
+			<Sidebar path={pathname} client:load />
+			<FloatingButtons client:load />
+			<slot />
+		</div>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

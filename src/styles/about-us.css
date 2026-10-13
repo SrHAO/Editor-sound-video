@@ -1,0 +1,116 @@
+.about-intro {
+  background-color: var(--surface);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 3rem;
+  transition: all 0.3s;
+}
+
+@media (min-width: 640px) {
+  .about-intro {
+    padding: 3rem;
+  }
+}
+
+.dark .about-intro {
+  background-color: var(--surface);
+}
+
+.about-intro__text {
+  font-size: 1.125rem;
+  line-height: 1.625;
+  color: var(--text);
+}
+
+@media (min-width: 640px) {
+  .about-intro__text {
+    font-size: 1.25rem;
+  }
+}
+
+.dark .about-intro__text {
+  color: var(--text);
+}
+
+.about-gallery {
+  margin-bottom: 3rem;
+}
+
+.about-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .about-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.studio-card {
+  background-color: var(--surface);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.studio-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.5rem);
+}
+
+.dark .studio-card {
+  background-color: var(--surface);
+}
+
+.studio-card__media {
+  position: relative;
+  height: 16rem;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .studio-card__media {
+    height: 20rem;
+  }
+}
+
+.studio-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.studio-card:hover .studio-card__img {
+  transform: scale(1.1);
+}
+
+.studio-card__body {
+  padding: 1.5rem;
+}
+
+.studio-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 0.5rem;
+}
+
+.dark .studio-card__title {
+  color: var(--text-strong);
+}
+
+.studio-card__caption {
+  color: var(--muted-token);
+}
+
+.dark .studio-card__caption {
+  color: var(--muted-token);
+}

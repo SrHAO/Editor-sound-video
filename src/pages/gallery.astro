@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Gallery from '../components/pages/Gallery.jsx';
+
+const title = 'Gallery — Editor Sound & Video';
+const description =
+  'Galería de sesiones fotográficas profesionales: retratos, estudio, producto y cobertura de eventos.';
+---
+
+<Layout title={title} description={description}>
+	<Gallery client:idle />
+</Layout>
