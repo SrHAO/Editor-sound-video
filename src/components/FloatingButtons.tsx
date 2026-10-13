@@ -1,25 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import type { JSX } from 'react';
 import { ArrowUp, Mail } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
 
-const FloatingButtons = () => {
-  const [showScrollTop, setShowScrollTop] = useState(false);
+const FloatingButtons = (): JSX.Element => {
+  const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
   const { language } = useLanguage();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const halfPage = pageHeight / 2;
-
-      setShowScrollTop(scrollPosition > halfPage);
+    let ticking = false;
+    const onScroll = (): void => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const scrollY: number = window.scrollY;
+        const pageHeight: number = document.documentElement.scrollHeight - window.innerHeight;
+        setShowScrollTop(scrollY > pageHeight / 2);
+        ticking = false;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = (): void => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

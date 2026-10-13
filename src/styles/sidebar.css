@@ -163,13 +163,6 @@
   object-fit: contain;
 }
 
-.sidebar__theme {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .sidebar__theme-switch {
   position: relative;
   width: 6rem;
@@ -289,23 +282,6 @@
   color: #eab308;
 }
 
-.sidebar__theme-label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--muted-token);
-}
-
-.dark .sidebar__theme-label {
-  color: var(--muted-token);
-}
-
-.sidebar__lang {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .sidebar__lang-switch {
   position: relative;
   width: 6rem;
@@ -359,14 +335,4 @@
 
 .sidebar__lang-switch--en .sidebar__lang-knob {
   transform: translateX(3rem);
-}
-
-.sidebar__lang-label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--muted-token);
-}
-
-.dark .sidebar__lang-label {
-  color: var(--muted-token);
 }

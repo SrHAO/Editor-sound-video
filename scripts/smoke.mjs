@@ -163,10 +163,11 @@ async function suiteGallery() {
       if (!marker) throw new Error('page reloaded on language toggle');
       const stored = await page.evaluate(() => localStorage.getItem('language'));
       if (stored !== 'es') throw new Error(`localStorage.language=${stored}`);
-      const btnLabel = await page
-        .locator('aside .sidebar__lang-label')
-        .textContent();
-      if (!btnLabel.includes('Español')) throw new Error('toggle label did not flip');
+      const flagSrc = await page
+        .locator('header .sidebar__lang-knob img')
+        .getAttribute('src');
+      if (!flagSrc || !flagSrc.includes('flag-mexico'))
+        throw new Error('lang flag did not flip to Spanish');
     } finally {
       await page.evaluate(() => localStorage.setItem('language', 'en'));
     }
